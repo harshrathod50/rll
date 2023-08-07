@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo ''
+echo ''
+echo '    ██████╗ ██╗     ██╗         '
+echo '    ██╔══██╗██║     ██║         '
+echo '    ██████╔╝██║     ██║         '
+echo '    ██╔══██╗██║     ██║         '
+echo '    ██║  ██║███████╗███████╗    '
+echo '    ╚═╝  ╚═╝╚══════╝╚══════╝    '
+echo ''
+echo 'Thanks for your contributions to RLL! 🎉'
+echo ''
