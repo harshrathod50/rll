@@ -10,6 +10,12 @@
         body {
             background-color: skyblue;
         }
+        .facebook-style-text {
+            font-family: 'Open Sans', sans-serif; 
+            font-size: 2rem;
+            font-weight: bold;
+            color: darkblue; 
+        }
     </style>
 </head>
 <body>
@@ -18,7 +24,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body" style="background-color: #ffffff;">
-                        <h2 class="card-title text-center">Login</h2>
+                        <h2 class="card-title text-center facebook-style-text">Login</h2>
                         <form #userlogin="ngForm" (ngSubmit)="OnSubmit(userlogin)">
                             <div class="form-group">
                                 <label for="username"><b><i>Username</i></b></label>
