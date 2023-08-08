@@ -3,6 +3,10 @@ package com.company.rll.controller.user;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+<<<<<<< Updated upstream
+=======
+import org.springframework.web.bind.annotation.RequestBody;
+>>>>>>> Stashed changes
 
 import java.util.List;
 
@@ -12,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.company.rll.entity.user.*;
-import com.company.rll.service.user.*;
+import com.company.rll.entity.user.UserEntity;
+import com.company.rll.service.user.UserService;
 
 
 
@@ -35,7 +39,10 @@ public class UserController {
 	public List<UserEntity> showall(){
 		return us.showall();
 	}
-	
+	@PostMapping(value="/register" , consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String register(@RequestBody UserEntity u) {
+		return us.register(u);
+	}
 	
 }
 

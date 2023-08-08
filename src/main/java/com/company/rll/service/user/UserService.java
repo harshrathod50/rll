@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.company.rll.entity.user.UserEntity;
 import com.company.rll.repository.user.UserRepository;
@@ -31,4 +32,12 @@ public class UserService {
 	public List<UserEntity> showall() {
 		return ur.findAll();
 	}
+public String register(UserEntity u)
+{
+	if(u!=null) 
+	{ ur.save(u); return "question added"; }
+	else{ return "failed to add";}
 }
+
+}
+		
