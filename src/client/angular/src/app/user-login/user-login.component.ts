@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserloginService } from './userlogin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -8,14 +10,24 @@ import { NgForm } from '@angular/forms';
 })
 export class UserLoginComponent {
 
+  constructor(private loginservice: UserloginService , private router: Router) {}
 
   OnSubmit(form:NgForm){
     if (form.valid) {
       const username = form.value.username;
       const password = form.value.password;
-      alert(`${username} and ${password}`);
-      if(username===' ' && password===' '){alert(`${username} and ${password}`);}
-      else {alert(`You have missed something!!!`);}
-  }
+      this.loginservice.login(username, password).subscribe(
+        (response) => {
+            if (response === 'login sucessfull') {
+              this.router.navigate(['/userpage']);
+            } else {
+                alert(`OOPS You have missed somewhere with your credentials`);
+            }
+        },
+        (error) => {
+            console.error('API Error:', error);
+        }
+    );
+}
   }
 }

@@ -21,11 +21,11 @@
                         <h2 class="card-title text-center">Login</h2>
                         <form #userlogin="ngForm" (ngSubmit)="OnSubmit(userlogin)">
                             <div class="form-group">
-                                <label for="username">Username</label>
+                                <label for="username"><b><i>Username</i></b></label>
                                 <input type="text" class="form-control" id="username"  name="username" ngModel placeholder="Enter your username" required>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password"><b><i>Passowrd</i></b></label>
                                 <input type="password" class="form-control" id="password" name="password" ngModel placeholder="Enter your password" required>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Login</button>
