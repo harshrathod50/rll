@@ -9,11 +9,9 @@ import { RegisterComponent } from './register/register.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { UserLoginComponent } from './user-login/user-login.component';
-<<<<<<< Updated upstream
 import { UserloginService } from './user-login/userlogin.service';
-=======
 import { UserService } from './user/user.service';
->>>>>>> Stashed changes
+
 
 
 @NgModule({
@@ -30,11 +28,7 @@ import { UserService } from './user/user.service';
     FormsModule,
     HttpClientModule
   ],
-<<<<<<< Updated upstream
-  providers: [UserloginService],
-=======
-  providers: [UserService],
->>>>>>> Stashed changes
+  providers: [UserloginService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

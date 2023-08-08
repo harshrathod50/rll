@@ -35,7 +35,7 @@ public class UserService {
 public String register(UserEntity u)
 {
 	if(u!=null) 
-	{ ur.save(u); return "question added"; }
+	{ ur.save(u); return "added"; }
 	else{ return "failed to add";}
 }
 
