@@ -1,17 +1,16 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class UserServiceService {
+export class RegisterService {
   avail: any = null;
   backendUrl = 'http://localhost:8080/ParallelProjectByusing_SpringRest/user';
   ownerUrl = 'http://localhost:8080/ParallelProjectByusing_SpringRest/owner';
   userUrl = 'http://localhost:8080/ParallelProjectByusing_SpringRest/enjoyer';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   register(data: any) {
     console.log(data);
     return this.http.post<any>(`${this.backendUrl}/add`, data);
@@ -50,25 +49,33 @@ export class UserServiceService {
   showAllBus() {
     return this.http.get<any>(`${this.ownerUrl}/getAllBus`);
   }
-  chechAvail(data: { startingPoint: any; endingPoint: any; availableDate: any; }) {
-    return this.http.get<any>(`${this.userUrl}/checkAvailability/${data.startingPoint}/${data.endingPoint}/${data.availableDate}`);
+  chechAvail(data: {
+    startingPoint: any;
+    endingPoint: any;
+    availableDate: any;
+  }) {
+    return this.http.get<any>(
+      `${this.userUrl}/checkAvailability/${data.startingPoint}/${data.endingPoint}/${data.availableDate}`
+    );
   }
   bookTicket(data: any) {
     return this.http.post<any>(`${this.userUrl}/bookTicket`, data);
   }
   availa() {
-    return this.avail = true;
+    return (this.avail = true);
   }
-  viewTicket(data: { bookingId: any; }) {
+  viewTicket(data: { bookingId: any }) {
     return this.http.get<any>(`${this.userUrl}/getTicket/${data.bookingId}`);
   }
   updateUser(data: any) {
     return this.http.put<any>(`${this.userUrl}/update`, data);
   }
-  cancelTicket(data: { bookingId: any; }) {
-    return this.http.delete<any>(`${this.userUrl}/deleteTicket/${data.bookingId}`);
+  cancelTicket(data: { bookingId: any }) {
+    return this.http.delete<any>(
+      `${this.userUrl}/deleteTicket/${data.bookingId}`
+    );
   }
   giveFeedback(data: any) {
-    return this.http.post<any>(`${this.userUrl}/giveFeedback`, data);
-  }
+    return this.http.post<any>(`${this.userUrl}/giveFeedback`, data);
+  }
 }

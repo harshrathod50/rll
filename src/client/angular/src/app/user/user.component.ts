@@ -1,31 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { RegisterService } from './register.service';
-
-export class User {
-  public  email:String | undefined;
-  public  password:String | undefined;
-  public Choose: String | undefined;
-};
-
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-user',
+  selector: 'user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
 })
-export class UserComponent implements OnInit {
-
-  user:User =new User();
-
-  constructor(private registerService: RegisterService) { }
-
-  ngOnInit(): void {
-  }
-
-  userRegister(){
-    console.log(this.user);
-    this.registerService.registerUser(this.user).subscribe(data=>{
-    alert("Successfully User is register?")
-    },error=>alert("Sorry User not register"));
-}
-  }
+export class UserComponent {}

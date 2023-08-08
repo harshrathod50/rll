@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from './user-service.service';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { RegisterService } from './register.service';
+
 @Component({
-  selector: 'app-register',
+  selector: 'register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   name = 'enjoyer';
-  constructor(private router: Router, private userService: UserServiceService) { }
+  constructor(
+    private router: Router,
+    private userService: RegisterService
+  ) {}
 
-  ngOnInit() {
-  }
   user(registerUser: NgForm) {
-
-    this.userService.register(registerUser.value).subscribe(data => {
+    this.userService.register(registerUser.value).subscribe((data) => {
       if (data.user != null) {
         console.log(data);
         // window.confirm('Registration Successfull');
@@ -29,7 +30,6 @@ export class RegisterComponent implements OnInit {
         alert('ENTER CORRECT CREDENTAILS');
         registerUser.reset();
       }
-    });
-  }
-
+    });
+  }
 }
