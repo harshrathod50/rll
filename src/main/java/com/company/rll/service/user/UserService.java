@@ -14,18 +14,19 @@ public class UserService {
 	@Autowired
 	UserRepository ur;
 
-	public String loginvalidation(String uname, String pwd) {
-		UserEntity u = ur.findByuname(uname);
-		if (u != null) {
-			if (u.getUsername() == uname && u.getPassword() == pwd) {
-				return "login sucessfull";
-			} else {
-				return "Invalid Creds";
-			}
-		} else {
-			return "User not found";
+	public String loginvalidation(String username, String password) {
+		UserEntity u = ur.findByuname(username);
+		//System.out.println(u.getUsername()+","+u.getPassword());
+		//System.out.println(username+","+password);
+		if(u !=null) {
+			if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+					return "login sucessfull";
+				} else {
+					return "Invalid Creds";
+				}
 		}
-	}
+		else  {return "User Not found";}
+		} 
 
 	public List<UserEntity> showall() {
 		return ur.findAll();

@@ -34,9 +34,6 @@ public class UserController {
 		return us.showall();
 	}
 	
-	@GetMapping(value="/check" , produces="application/json")
-	public String checkapi() {
-		return "hello";
-	}
+	
 }
 
