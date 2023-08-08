@@ -13,6 +13,7 @@ import { UserloginService } from './user-login/userlogin.service';
 import { UserService } from './user/user.service';
 
 
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserService } from './user/user.service';
     UserComponent,
     RegisterComponent,
     AdminComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    AdminhomeComponent
   ],
   imports: [
     BrowserModule,
