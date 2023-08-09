@@ -19,9 +19,10 @@ export class LoginComponent {
       this.loginService.login(username, password).subscribe(
         (response) => {
           if (response === 'login sucessfull') {
-            this.router.navigate(['/userpage']);
+            this.router.navigate(['']);
           } else {
             alert(`OOPS You have missed somewhere with your credentials`);
+            
           }
         },
         (error) => {
