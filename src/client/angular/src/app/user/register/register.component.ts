@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 
 import { RegisterService } from './register.service';
+import { Router } from '@angular/router';
 
 export class User {
-  user_id!:number; 
-  username!:string;
-  password!:string ;
-  date_created!:string;
- 
+  username!: string;
+  password!: string;
+  email!: string;
 }
 
 @Component({
@@ -18,17 +17,18 @@ export class User {
 export class RegisterComponent {
   user: User = new User();
 
-  constructor(private registerService: RegisterService) {}
+  constructor(
+    private router: Router,
+    private registerService: RegisterService
+  ) {}
 
   userRegister() {
     console.log(this.user);
     this.registerService.registerUser(this.user).subscribe(
       (data) => {
-        alert('Successfully User is register');
+        this.router.navigate(['/user/login'])
       },
       (error) => alert('Sorry User not register')
     );
   }
-
 }
-// Demo Data={"user_id": 1202,"username": "er","password": "er5","date_created": "08.08.2023"}

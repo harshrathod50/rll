@@ -18,7 +18,7 @@ import com.company.rll.service.user.UserService;
 
 
 @RestController
-@RequestMapping("/userlogin")
+@RequestMapping("/user")
 @CrossOrigin
 public class UserController {
 	
