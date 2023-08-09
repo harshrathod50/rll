@@ -23,7 +23,7 @@ export class RegisterComponent {
         // window.confirm('Registration Successfull');
         alert('Registration Successfull');
         registerUser.reset();
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('register');
       } else {
         console.log(data);
         // console.log("NO Output");

@@ -1,4 +1,4 @@
-<div class="col-md-4 offset-4 mt-6 card" style="background: darkgrey">
+<div class="col-md-4 offset-4 mt-6 card" style="background: white">
   <div class="card-body">
     <form #registerUser="ngForm" (ngSubmit)="user(registerUser)">
       <h1 class="h1 text-center">Registration Form</h1>
@@ -50,19 +50,7 @@
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
-      <div class="form-group">
-        <label for="userMobile" class="text-success">Confirm password </label>
-        <input
-          type="password"
-          #userMobile="ngModel"
-          ngModel
-          name="userPassword"
-          id="userPassword"
-          class="form-control"
-          required
-          placeholder="Enter password"
-        />
-      </div>
+      
       <input
         type="hidden"
         name="type"
