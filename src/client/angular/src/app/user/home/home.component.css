@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.fullpage-image {
+  width: 100%;
+  height: 100vh;
+  background: url('https://www.greenbiz.com/sites/default/files/2020-10/chicago_citybus_stock.jpg') no-repeat center/cover;
+  position: relative;
+  text-align: center;
+  color: white;
+
+
+}
+
+.book-now-button {
+  padding: 10px 20px;
+  background: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  left: 80px;
+  top: 500px;
+}
+
+.book-now-button:hover {
+  background: #ff5722;
+}

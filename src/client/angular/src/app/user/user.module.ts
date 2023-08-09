@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
 import { LoginService } from './login/login.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [UserComponent, RegisterComponent, LoginComponent],
+  declarations: [UserComponent, RegisterComponent,HomeComponent, LoginComponent],
   imports: [CommonModule, UserRoutingModule, FormsModule],
   bootstrap: [UserComponent],
   providers: [RegisterService, LoginService],
