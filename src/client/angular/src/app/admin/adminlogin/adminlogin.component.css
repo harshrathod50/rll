@@ -1,0 +1,116 @@
+/* Style for the container */
+.container {
+  display: flex;
+  justify-content: center;
+  
+  height: 100vh;
+  background-color: #ffd6e3;
+}
+
+/* Style for the form card */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Style for the form fields and labels */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+input[type="email"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 20vw;
+}
+
+
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 20vw;
+}
+
+/* Style for the login button */
+.btn {
+  background-color: #36a315;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Style for the header */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Custom style for the form */
+.form-example {
+  width: 200%;
+  max-width: 300px;
+}
+
+/* Additional styles for responsiveness (optional) */
+@media screen and (max-width: 768px) {
+  .col-6 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+}
+
+.form-example  {
+  font-weight: 600;
+  font-size: 25px;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  line-height: 1.7em;
+  box-shadow: 0 2px 10px 0 #cac9c9;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  border-left: 20px solid #f7246a;
+  border-right: 20px solid #f7246a;
+  border-radius: 5px 55px 5px 55px;
+  }
+
+
+  h1  {
+    font-weight: 600;
+    font-size: 25px;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    line-height: 1.7em;
+    box-shadow: 0 2px 10px 0 #cac9c9;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    border-left :40px solid #1221eb;
+    border-right: 40px solid #2813e9;
+    border-radius: 5px 5px 5px 5px;
+    }
