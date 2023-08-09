@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { RegisterService } from './register.service';
 
 export class User {
+  public name: String | undefined;
   public email: String | undefined;
   public password: String | undefined;
-  public Choose: String | undefined;
+ 
 }
 
 @Component({

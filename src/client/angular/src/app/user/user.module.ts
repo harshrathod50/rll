@@ -7,11 +7,12 @@ import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [UserComponent, RegisterComponent, LoginComponent],
   imports: [CommonModule, UserRoutingModule, FormsModule],
   bootstrap: [UserComponent],
-  providers: [RegisterService, LoginComponent],
+  providers: [RegisterService, LoginService],
 })
 export class UserModule {}
