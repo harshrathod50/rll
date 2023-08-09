@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.1.2</version>
-    <relativePath/> <!-- lookup parent from repository -->
+    <relativePath /> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.company.rll</groupId>
   <artifactId>rll</artifactId>
@@ -15,6 +16,10 @@
   <description>Demo project for Spring Boot</description>
   <properties>
     <java.version>17</java.version>
+    <!-- START: Prettier JAVA: By default just re-write code with Prettier.
+    https://github.com/HubSpot/prettier-maven-plugin -->
+    <plugin.prettier.goal>write</plugin.prettier.goal>
+    <!-- END: Prettier JAVA -->
   </properties>
   <dependencies>
     <dependency>
@@ -34,6 +39,12 @@
       <artifactId>spring-session-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
       <scope>runtime</scope>
@@ -43,7 +54,7 @@
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
-      <dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
@@ -68,6 +79,40 @@
           </excludes>
         </configuration>
       </plugin>
+      <!-- START: Prettier JAVA -->
+      <plugin>
+        <groupId>com.hubspot.maven.plugins</groupId>
+        <artifactId>prettier-maven-plugin</artifactId>
+        <version>0.16</version>
+        <configuration>
+          <!-- TODO: Version 2.0.0 currently has issues. 
+          Uncomment it later. -->
+          <!-- <prettierJavaVersion>2.0.0</prettierJavaVersion> -->
+          <!-- TODO: END -->
+          <printWidth>90</printWidth>
+          <tabWidth>2</tabWidth>
+          <useTabs>false</useTabs>
+          <ignoreConfigFile>true</ignoreConfigFile>
+          <ignoreEditorConfig>true</ignoreEditorConfig>
+          <!-- Use <inputGlobs> to override the default input patterns -->
+          <inputGlobs>
+            <!-- These are the default patterns, you can omit <inputGlobs> 
+            entirely unless you want to override them -->
+            <inputGlob>src/main/java/**/*.java</inputGlob>
+            <inputGlob>src/test/java/**/*.java</inputGlob>
+          </inputGlobs>
+        </configuration>
+        <executions>
+          <execution>
+            <?m2e execute onConfiguration,onIncremental?>
+            <phase>validate</phase>
+            <goals>
+              <goal>${plugin.prettier.goal}</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- END: Prettier JAVA -->
     </plugins>
   </build>
 </project>
