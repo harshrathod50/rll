@@ -1,10 +1,11 @@
 package com.company.rll.service.user;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import com.company.rll.entity.user.UserEntity;
 import com.company.rll.repository.user.UserRepository;
@@ -32,11 +33,13 @@ public class UserService {
 	public List<UserEntity> showall() {
 		return ur.findAll();
 	}
-public String register(UserEntity u)
+public UserEntity register(UserEntity u)
 {
-	if(u!=null) 
-	{ ur.save(u); return "added"; }
-	else{ return "failed to add";}
+	Optional<UserEntity> r = ur.findById((long) u.getUser_id());
+	if(!r.isPresent()) 
+	{ ur.save(u); 
+	}
+	return null;
 }
 
 }

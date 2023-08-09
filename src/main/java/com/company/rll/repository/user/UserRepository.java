@@ -8,6 +8,6 @@ import com.company.rll.entity.user.UserEntity;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity,Integer> {
+public interface UserRepository extends JpaRepository<UserEntity,Long> {
 	public  UserEntity findByuname(String uname);
 }

@@ -36,7 +36,7 @@ public class UserController {
 		return us.showall();
 	}
 	@PostMapping(value="/register" , consumes=MediaType.APPLICATION_JSON_VALUE)
-	public String register(@RequestBody UserEntity u) {
+	public UserEntity register(@RequestBody UserEntity u) {
 		return us.register(u);
 	}
 	

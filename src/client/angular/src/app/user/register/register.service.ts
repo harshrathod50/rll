@@ -7,7 +7,7 @@ import { User } from './register.component';
   providedIn: 'root',
 })
 export class RegisterService {
-  baseUrl = 'http://localhost:8074/user';
+  baseUrl = 'http://localhost:8080/userlogin/register';
   constructor(private httpClient: HttpClient) {}
 
   registerUser(user: User): Observable<Object> {

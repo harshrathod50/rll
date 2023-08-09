@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { RegisterService } from './register.service';
 
 export class User {
-  public name: String | undefined;
-  public email: String | undefined;
-  public password: String | undefined;
+  user_id!:number; 
+  username!:string;
+  password!:string ;
+  date_created!:string;
  
 }
 
@@ -23,9 +24,11 @@ export class RegisterComponent {
     console.log(this.user);
     this.registerService.registerUser(this.user).subscribe(
       (data) => {
-        alert('Successfully User is register?');
+        alert('Successfully User is register');
       },
       (error) => alert('Sorry User not register')
     );
   }
+
 }
+// Demo Data={"user_id": 1202,"username": "er","password": "er5","date_created": "08.08.2023"}
