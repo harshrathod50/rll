@@ -24,8 +24,8 @@ public class BusService {
   //editing
 
   //deleting
-  public String deletebus(int bus_id) {
-    //br.deleteById(bus_id);
+  public String deletebus(long bus_id) {
+    br.deleteById(bus_id);
     return "Bus Removed";
   }
 

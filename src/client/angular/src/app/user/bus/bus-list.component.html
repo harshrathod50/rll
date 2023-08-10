@@ -16,14 +16,15 @@
       </thead>
       <tbody>
         <tr *ngFor="let bus of buses">
+          <td>{{bus.bus_id}}</td>
           <td>{{bus.location}}</td>
           <td>{{bus.departure}}</td>
           <td>{{bus.eta}}</td>
           <td>{{bus.price}}</td>
           <td>{{bus.availability}}</td>
-          <!-- <td><button  class="btn btn-danger" (click)="removeBus(bus.busNumber)" >Delete</button> &nbsp;
-              <button  class="btn btn-info" (click)="updateBus(bus.busNumber)" >Update</button>
-          </td> -->
+          <td><button  class="btn btn-danger" (click)="removeBus(bus.bus_id)" >Delete</button> &nbsp;
+          <button  class="btn btn-info">Update</button>
+          </td> 
         </tr>
       </tbody>
     </table>

@@ -14,6 +14,17 @@ export class BusService {
   viewAllBus(): Observable<Bus[]> {
      return this.http.get<Bus[]>(`${this.busurl}/viewAllbuses`);}
 
+    
+  addBus(){
+    //enter adding a bus here
+  }   
+
+  //deleteing a bus
+  deletebus(bus_id:number):Observable<String>{
+    const delete_id={bus_id};
+    return this.http.post(`${this.busurl}/deletebus`, delete_id, { responseType: 'text' });
+  }
+
 
   removeBus(): Observable < Object > { return new Observable() } 
 }

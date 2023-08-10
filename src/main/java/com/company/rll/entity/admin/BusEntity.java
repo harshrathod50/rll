@@ -2,6 +2,8 @@ package com.company.rll.entity.admin;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,8 +11,9 @@ import jakarta.persistence.Table;
 @Table(name = "bus")
 public class BusEntity {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "bus_id")
-  public int bus_id;
+  public long bus_id;
 
   @Column(name = "location")
   public String location;
@@ -44,11 +47,11 @@ public class BusEntity {
 
   public BusEntity() {}
 
-  public int getBus_id() {
+  public long getBus_id() {
     return bus_id;
   }
 
-  public void setBus_id(int bus_id) {
+  public void setBus_id(long bus_id) {
     this.bus_id = bus_id;
   }
 

@@ -30,7 +30,8 @@ public class BusController {
   }
 
   @PostMapping(value = "/deletebus", consumes = MediaType.APPLICATION_JSON_VALUE)
-  public String deletebus(int bus_id) {
+  public String deletebus(@RequestBody BusEntity b) {
+    long bus_id = b.getBus_id();
     return bs.deletebus(bus_id);
   }
 }
