@@ -5,21 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Form</title>
     <!-- Include Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <style>
-      body {
-        background-color: skyblue;
-      }
-      .facebook-style-text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 2rem;
-        font-weight: bold;
-        color: darkblue;
-      }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container-fluid">
@@ -57,20 +46,17 @@
                     required
                   />
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">
+                <button type="submit" class="btn btn-danger btn-block">
                   Login
                 </button>
               </form>
               <p class="text-center mt-3">
-                Don't have an account? <a href="#">SignUp?</a>
+                Don't have an account? <a href="/user/register">SignUp?</a>
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Include Bootstrap JS (optional) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
 </html>
