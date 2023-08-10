@@ -1,30 +1,36 @@
 <div class="container">
   <!-- Form -->
   <div class="row">
-    <div class="col-6">
-      <div class="form-example card mt-5 pl-5 pt-5 pb-5">
-      <form [formGroup]="aLogin" (ngSubmit)="loginAdmin()">
+    
+      <div class="form-example card col-md-4 offset-4 mt-6 ">
+      <form [formGroup]="aLogin" (ngSubmit)="login()">
       <h1>Admin Login</h1>
 
         <div class="form-group">
-          <label for="exampleInputEmail1">Username</label>
-          <input type="email" name="userEmail" formControlName="userEmail" class="form-control" id="exampleInputEmail1" required>
-          
-        </div>
+          <label for="username">Username</label>
+          <input type="email" name="username" formControlName="username"  class="form-control" id="username" placeholder="Enter your Username" required>
+          <div *ngIf="aLogin.controls.username.touched && aLogin.controls.username.invalid">
+            <p class="alert alert-danger">This field is required</p>
+          </div>
+        </div><br>
 
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" name="userPassword" formControlName="userPassword" class="form-control"
-            id="exampleInputPassword1" required>
-        </div>
+          <label for="password">Password</label>
+          <input type="password" name="password" formControlName="password" class="form-control"
+            id="password" placeholder="Enter your password" required>
+            <div *ngIf="aLogin.controls.password.touched && aLogin.controls.password.invalid">
+              <p class="alert alert-danger">This field is required</p>
+            </div>
+        </div><br>
 
       <div>
       <button type="submit" class="btn btn-success">Login</button>
       </div>
-      <p class="text-center mt-3">Don't have an account? <a href="#">SignUp?</a></p>
-     </form>
-   </div>
 
+      <p class="text-center mt-3">Don't have an account? <a href="/admin/register">SignUp?</a></p>
+     </form>
+  
+    </div>
     <div class="text-center text-danger">
       <h2 *ngIf="invalid">{{invalid}}</h2>
     </div>

@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 
 export class Admin {
-  auname:string=" ";
-  apass:string=" ";
+  username:string=" ";
+  password:string=" ";
   invalid:string = " ";
 
 }
@@ -22,16 +22,20 @@ export class AdminloginComponent implements OnInit {
   invalid:string = "";
 
   constructor(private router: Router) { }
+  ngOnInit(): void {
+    
+  }
 
-  aLogin = new FormGroup({
-    userEmail: new FormControl(''),
-    userPassword: new FormControl(''),
+    
+    aLogin = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
   });
 
-  loginAdmin(){
+  login(){
     const formValue = this.aLogin.value;
-    this.auname = formValue.userEmail!;
-    this.apass = formValue.userPassword!;
+    this.auname = formValue.username!;
+    this.apass = formValue.password!;
     this.authenticate(this.auname, this.apass);
   }
 
@@ -53,11 +57,8 @@ export class AdminloginComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  }
+  
 
-  logout(){
-    sessionStorage.removeItem('adminusername');
-  }
+  
 
 }

@@ -1,48 +1,17 @@
-/* Style for the container */
-.container {
-  display: flex;
+/* Style for the container*/ 
+.container{
   justify-content: center;
-  
-  height: 100vh;
-  background-color: #ffd6e3;
+  align-items:center;
 }
 
-/* Style for the form card */
+/* Style for the form card*/ 
 .card {
-  background-color: #fff;
+  background-color: #afdefd;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
-/* Style for the form fields and labels */
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-
-input[type="email"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 20vw;
-}
-
-
-input[type="password"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 20vw;
-}
 
 /* Style for the login button */
 .btn {
@@ -65,26 +34,9 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Custom style for the form */
-.form-example {
-  width: 200%;
-  max-width: 300px;
-}
-
-/* Additional styles for responsiveness (optional) */
-@media screen and (max-width: 768px) {
-  .col-6 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  
-}
-
 .form-example  {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 18px;
   background: #fff;
   color: #000;
   padding: 5px;
@@ -113,4 +65,4 @@ h1 {
     border-left :40px solid #1221eb;
     border-right: 40px solid #2813e9;
     border-radius: 5px 5px 5px 5px;
-    }
+  }

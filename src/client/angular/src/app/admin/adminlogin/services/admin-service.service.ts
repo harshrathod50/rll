@@ -8,11 +8,11 @@ import { Admin } from '../adminlogin.component';
 })
 export class AdminServiceService {
 
-  private baseURL = "http://localhost:4200/admin/login";
+  private baseURL = "http://localhost:8080/admin/login";
 
   constructor(private httpClient: HttpClient) { }
 
-  signin(cred: Admin): Observable<Object>{
+  login(cred: Admin): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,cred);
   }
 }
