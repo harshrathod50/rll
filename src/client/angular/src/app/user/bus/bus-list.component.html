@@ -4,38 +4,27 @@
   </div><br>
   <button class="btn btn-primary" routerLink="/adminHome" >Goto Home</button>
   <div class="panel-body">
-    <table class="table table-striped" *ngIf="bus">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>Bus Number</th>
-          <th>Date</th>
-          <th>Bus</th>
           <th>Location</th>
           <th>Departure</th>
           <th>ETA</th>
-          <th>Availablity</th>
           <th>Price</th>
-          <th>Action</th>
-          <!-- <th>Ticket Price</th>
-          <th>Actions</th> -->
+          <th>Availablity</th>  
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let bus of bus">
-          <td>{{bus.busNumber}}</td>
-          <td>{{bus.date}}</td>
-          <td>{{bus.bus}}</td>
+        <tr *ngFor="let bus of buses">
           <td>{{bus.location}}</td>
           <td>{{bus.departure}}</td>
-          <td>{{bus.ETA}}</td>
-          <td>{{bus.availability}}</td>
+          <td>{{bus.eta}}</td>
           <td>{{bus.price}}</td>
-          <td>{{bus.action}}</td>
-           <td>{{bus.cost}}</td>
-          <td><button  class="btn btn-danger" (click)="removeBus(bus.busNumber)" >Delete</button> &nbsp;
+          <td>{{bus.availability}}</td>
+          <!-- <td><button  class="btn btn-danger" (click)="removeBus(bus.busNumber)" >Delete</button> &nbsp;
               <button  class="btn btn-info" (click)="updateBus(bus.busNumber)" >Update</button>
-          </td>
-        </tr> -->
+          </td> -->
+        </tr>
       </tbody>
     </table>
   </div>
