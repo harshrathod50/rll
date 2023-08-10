@@ -1,20 +1,20 @@
 <div class="col-md-4 offset-4 mt-6 card" style="background: white">
   <div class="card-body">
-    <form #registerUser="ngForm" (ngSubmit)="user(registerUser)">
+    <form #admin="ngForm" (ngSubmit)="register(admin)">
       <h1 class="h1 text-center">Registration Form</h1>
       <div class="form-group">
         <label for="userName" class="text-success">Name</label>
         <input
           type="text"
-          #userName="ngModel"
+          #name="ngModel"
           ngModel
-          name="userName"
+          name="name"
           id="userName"
           class="form-control"
           required
           placeholder="Enter user name"
         />
-        <div *ngIf="userName.touched && userName.invalid">
+        <div *ngIf="admin.touched && admin.invalid">
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
@@ -22,15 +22,15 @@
         <label for="userEmail" class="text-success">Email</label>
         <input
           type="email"
-          #userEmail="ngModel"
+          #username="ngModel"
           ngModel
-          name="userEmail"
+          name="username"
           id="userEmail"
           class="form-control"
           required
           placeholder="Enter user email"
         />
-        <div *ngIf="userEmail.touched && userEmail.invalid">
+        <div *ngIf="admin.touched && admin.invalid">
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
@@ -38,30 +38,29 @@
         <label for="userPassword" class="text-success">Password </label>
         <input
           type="password"
-          #userPassword="ngModel"
+          #password="ngModel"
           ngModel
-          name="userPassword"
+          name="password"
           id="userPassword"
           class="form-control"
           required
           placeholder="Enter password"
         />
-        <div *ngIf="userPassword.touched && userPassword.invalid">
+        <div *ngIf="admin.touched && admin.invalid">
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
-      
       <input
         type="hidden"
         name="type"
         id="type"
         #type="ngModel"
-        [(ngModel)]="name"
+        [(ngModel)]="admin.name"
       />
       <button
         type="submit"
         class="btn btn-outline-info btn-block form-control"
-        [disabled]="registerUser.invalid"
+        [disabled]="admin.invalid"
       >
         Register
       </button>

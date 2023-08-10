@@ -1,19 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Admin } from '../adminlogin/adminlogin.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegisterService {
   avail: any = null;
-  backendUrl = 'http://localhost:8080';
-  
+  backendUrl = 'http://localhost:8080/admin';
 
   constructor(private http: HttpClient) {}
-  register(data: any) {
-    console.log(data);
-    return this.http.post<any>(`${this.backendUrl}/admin/register`, data);
+
+  register(admin: Admin) {
+    return this.http.post<Admin>(`${this.backendUrl}/register`, admin);
   }
-  
-  
 }

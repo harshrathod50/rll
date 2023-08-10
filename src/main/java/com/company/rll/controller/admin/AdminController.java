@@ -4,7 +4,6 @@ import com.company.rll.entity.admin.AdminEntity;
 import com.company.rll.service.admin.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +19,12 @@ public class AdminController {
   @Autowired
   AdminService adminService;
 
-  @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/register")
   public ResponseEntity<AdminEntity> register(@RequestBody AdminEntity adminEntity) {
-    //System.out.println(AdminEntity);
-    AdminEntity a = adminService.register(adminEntity);
-    return new ResponseEntity<AdminEntity>(adminEntity, HttpStatus.CREATED);
+    return new ResponseEntity<AdminEntity>(
+      adminService.register(adminEntity),
+      HttpStatus.CREATED
+    );
   }
 
   @GetMapping("/greet")
