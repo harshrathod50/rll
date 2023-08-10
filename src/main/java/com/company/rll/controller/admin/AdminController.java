@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +25,10 @@ public class AdminController {
     //System.out.println(AdminEntity);
     AdminEntity a = adminService.register(adminEntity);
     return new ResponseEntity<AdminEntity>(adminEntity, HttpStatus.CREATED);
+  }
+
+  @GetMapping("/greet")
+  public ResponseEntity<String> greet() {
+    return new ResponseEntity<String>("Hello, World!", HttpStatus.OK);
   }
 }
