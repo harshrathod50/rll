@@ -14,7 +14,7 @@
           required
           placeholder="Enter user name"
         />
-        <div *ngIf="admin.touched && admin.invalid">
+        <div *ngIf="name.touched && name.invalid">
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
@@ -30,7 +30,7 @@
           required
           placeholder="Enter user email"
         />
-        <div *ngIf="admin.touched && admin.invalid">
+        <div *ngIf="username.touched && username.invalid">
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
@@ -46,7 +46,7 @@
           required
           placeholder="Enter password"
         />
-        <div *ngIf="admin.touched && admin.invalid">
+        <div *ngIf="password.touched && password.invalid">
           <p class="alert alert-danger">This field is required</p>
         </div>
       </div>
