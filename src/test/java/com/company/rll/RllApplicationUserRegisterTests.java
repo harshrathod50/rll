@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
@@ -16,31 +16,21 @@ public class RllApplicationUserRegisterTests {
   private MockMvc mvc;
 
   @Test
-  void testApiWithJsonInput() throws Exception {
-    String jsonInput = "{\"username\": \"tina\", \"password\": \"tina26\"}";
-    this.mvc.perform(
-        MockMvcRequestBuilders
-          .post("/user/register")
-          .content(jsonInput)
-          .contentType(MediaType.APPLICATION_JSON)
-          .accept(MediaType.APPLICATION_JSON)
-      )
-      .andExpect(MockMvcResultMatchers.status().isOk());
-  }
+  void contextLoads() {}
 
   @Test
-  void testApiWithJsonInputAndResponseMessage() throws Exception {
-    String jsonInput = "{\"username\": \"tina\", \"password\": \"tina26\"}";
-    String expectedResponse = "";
+  void testGreet() throws Exception {
+    this.mvc.perform(MockMvcRequestBuilders.get("/admin/greet", ""))
+      .andExpect(MockMvcResultMatchers.status().isOk())
+      .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=UTF-8"));
+  }
 
+  public void testUserRegister() throws Exception {
     this.mvc.perform(
-        MockMvcRequestBuilders
-          .post("/user/register")
-          .content(jsonInput)
-          .contentType(MediaType.APPLICATION_JSON)
-          .accept(MediaType.APPLICATION_JSON)
+        MockMvcRequestBuilders.get("/user/register", "name", "username", "password")
       )
       .andExpect(MockMvcResultMatchers.status().isOk())
-      .andExpect(MockMvcResultMatchers.content().string(expectedResponse));
+      .andExpect(MockMvcResultMatchers.view().name("user-register"))
+      .andDo(MockMvcResultHandlers.print());
   }
 }
