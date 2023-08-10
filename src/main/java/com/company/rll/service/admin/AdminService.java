@@ -12,10 +12,23 @@ public class AdminService {
   AdminRepository adminRepository;
 
   public AdminEntity register(AdminEntity adminEntity) {
-    //AdminEntity
     Optional<AdminEntity> result = adminRepository.findById(adminEntity.getAdminId());
     if (!result.isPresent()) {
       return adminRepository.save(adminEntity);
+    }
+    return null;
+  }
+
+  public AdminEntity login(AdminEntity adminEntity) {
+    System.out.println(adminEntity.getPassword());
+    System.out.println(adminEntity.getUsername());
+    Optional<AdminEntity> result = adminRepository.findByUsername(
+      adminEntity.getUsername()
+    );
+    if (result.isPresent()) {
+      if (adminEntity.getPassword().equals(result.get().getPassword())) {
+        return result.get();
+      }
     }
     return null;
   }

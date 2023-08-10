@@ -1,38 +1,67 @@
 <div class="container">
   <!-- Form -->
   <div class="row">
-    
-      <div class="form-example card col-md-4 offset-4 mt-6 ">
-      <form [formGroup]="aLogin" (ngSubmit)="login()">
-      <h1>Admin Login</h1>
-
+    <div class="form-example card col-md-4 offset-4 mt-6">
+      <form #admin="ngForm" (ngSubmit)="login(admin)">
+        <h1>Admin Login</h1>
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="email" name="username" formControlName="username"  class="form-control" id="username" placeholder="Enter your Username" required>
-          <div *ngIf="aLogin.controls.username.touched && aLogin.controls.username.invalid">
+          <input
+            type="text"
+            #username="ngModel"
+            ngModel
+            type="email"
+            name="username"
+            class="form-control"
+            id="username"
+            placeholder="Enter your Username"
+            required
+          />
+          <div
+            *ngIf="
+              admin.controls['username'].touched &&
+              admin.controls['username'].invalid
+            "
+          >
             <p class="alert alert-danger">This field is required</p>
           </div>
-        </div><br>
+        </div>
+        <br />
 
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" formControlName="password" class="form-control"
-            id="password" placeholder="Enter your password" required>
-            <div *ngIf="aLogin.controls.password.touched && aLogin.controls.password.invalid">
-              <p class="alert alert-danger">This field is required</p>
-            </div>
-        </div><br>
+          <input
+            type="password"
+            ngModel
+            #password="ngModel"
+            name="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+          <div
+            *ngIf="
+              admin.controls['password'].touched &&
+              admin.controls['password'].invalid
+            "
+          >
+            <p class="alert alert-danger">This field is required</p>
+          </div>
+        </div>
+        <br />
 
-      <div>
-      <button type="submit" class="btn btn-success">Login</button>
-      </div>
+        <div>
+          <button type="submit" class="btn btn-success">Login</button>
+        </div>
 
-      <p class="text-center mt-3">Don't have an account? <a href="/admin/register">SignUp?</a></p>
-     </form>
-  
+        <p class="text-center mt-3">
+          Don't have an account? <a href="/admin/register">SignUp?</a>
+        </p>
+      </form>
     </div>
     <div class="text-center text-danger">
-      <h2 *ngIf="invalid">{{invalid}}</h2>
+      <h2 *ngIf="admin.invalid">{{ admin.invalid }}</h2>
     </div>
   </div>
-  </div>
+</div>

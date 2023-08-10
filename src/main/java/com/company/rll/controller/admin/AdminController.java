@@ -27,6 +27,15 @@ public class AdminController {
     );
   }
 
+  @PostMapping(value = "/login")
+  public ResponseEntity<Object> login(@RequestBody AdminEntity adminEntity) {
+    AdminEntity a = adminService.login(adminEntity);
+    if (a != null) {
+      return new ResponseEntity<Object>(a, HttpStatus.ACCEPTED);
+    }
+    return new ResponseEntity<Object>(null, HttpStatus.NOT_FOUND);
+  }
+
   @GetMapping("/greet")
   public ResponseEntity<String> greet() {
     return new ResponseEntity<String>("Hello, World!", HttpStatus.OK);

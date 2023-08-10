@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { AdminServiceService } from './services/admin-service.service';
+
 export class Admin {
-  name?: string  = undefined;
+  name?: string = undefined;
   username: string = ' ';
   password: string = ' ';
   invalid: string = ' ';
@@ -17,38 +16,18 @@ export class Admin {
   templateUrl: './adminlogin.component.html',
   styleUrls: ['./adminlogin.component.css'],
 })
-export class AdminloginComponent implements OnInit {
-  auname: string = ' ';
-  apass: string = ' ';
-  invalid: string = '';
+export class AdminloginComponent {
 
-  constructor(private router: Router) {}
-  ngOnInit(): void {}
+  constructor(
+    private router: Router,
+    private adminService: AdminServiceService
+  ) {}
 
-  aLogin = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  login() {
-    const formValue = this.aLogin.value;
-    this.auname = formValue.username!;
-    this.apass = formValue.password!;
-    this.authenticate(this.auname, this.apass);
-  }
-
-  authenticate(username: string, password: string) {
-    if (username === 'Rajalakshmi' && password === 'R@jii23') {
-      sessionStorage.setItem('adminusername', username);
-      this.router.navigate(['/admin/register']);
-    } else {
-      this.invalid = 'Invalid Username or Password';
-    }
-  }
-
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('adminusername');
-    console.log(!(user === null));
-    return !(user === null);
+  login(admin: NgForm) {
+    this.adminService.login(admin.value).subscribe((admin) => {
+      if (admin != null) {
+        this.router.navigate(['/admin']);
+      }
+    });
   }
 }
