@@ -2,7 +2,6 @@
   <div class="panel-heading" >
     <h2>List of Buses</h2>
   </div><br>
-  <button class="btn btn-primary" routerLink="/adminHome" >Goto Home</button>
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
@@ -23,10 +22,10 @@
           <td>{{bus.price}}</td>
           <td>{{bus.availability}}</td>
           <td><button  class="btn btn-danger" (click)="removeBus(bus.bus_id)" >Delete</button> &nbsp;
-          <button  class="btn btn-info">Update</button>
           </td> 
         </tr>
       </tbody>
     </table>
+    <button class="btn btn-primary" routerLink="/user/home" >Goto Home</button>
   </div>
 </div>

@@ -44,8 +44,5 @@ export class BusListComponent implements OnInit {
       console.error('API Error:', error);
     });
   }
-  // updateBus(busNo:Number) {
-  //   this.router.navigate(["/updateBus", busNo]);
-  // }
 }
 
