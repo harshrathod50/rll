@@ -19,8 +19,8 @@
           />
           <div
             *ngIf="
-              admin.controls['username'].touched &&
-              admin.controls['username'].invalid
+            username.touched &&
+            username.invalid
             "
           >
             <p class="alert alert-danger">This field is required</p>
@@ -42,9 +42,8 @@
           />
           <div
             *ngIf="
-              admin.controls['password'].touched &&
-              admin.controls['password'].invalid
-            "
+            password.touched &&
+            password.invalid"
           >
             <p class="alert alert-danger">This field is required</p>
           </div>
@@ -61,7 +60,7 @@
       </form>
     </div>
     <div class="text-center text-danger">
-      <h2 *ngIf="admin.invalid">{{ admin.invalid }}</h2>
+      <h2 *ngIf="errorMessage">{{errorMessage}}</h2>
     </div>
   </div>
 </div>

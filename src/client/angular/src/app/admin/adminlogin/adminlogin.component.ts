@@ -5,10 +5,11 @@ import { Router } from '@angular/router';
 import { AdminServiceService } from './services/admin-service.service';
 
 export class Admin {
-  name?: string = undefined;
+  //name?: string = undefined;
+  name: string = ' ';
   username: string = ' ';
   password: string = ' ';
-  invalid: string = ' ';
+  //invalid: string = ' ';
 }
 
 @Component({
@@ -17,6 +18,8 @@ export class Admin {
   styleUrls: ['./adminlogin.component.css'],
 })
 export class AdminloginComponent {
+
+  errorMessage: string = ' ';
 
   constructor(
     private router: Router,
@@ -28,6 +31,16 @@ export class AdminloginComponent {
       if (admin != null) {
         this.router.navigate(['/admin']);
       }
+      else{
+        
+        this.errorMessage = "Invalid Username or Password";
+      }
+      (error: any) => {
+        console.error('API Error:', error);
+
+        
+      }
     });
+    
   }
 }
