@@ -16,6 +16,8 @@
   <description>Demo project for Spring Boot</description>
   <properties>
     <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <mavne.compiler.target>17</mavne.compiler.target>
     <!-- START: Prettier JAVA: By default just re-write code with Prettier.
     https://github.com/HubSpot/prettier-maven-plugin -->
     <plugin.prettier.goal>write</plugin.prettier.goal>
