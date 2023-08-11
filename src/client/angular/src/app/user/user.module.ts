@@ -10,9 +10,10 @@ import { RegisterService } from './register/register.service';
 import { LoginService } from './login/login.service';
 import { HomeComponent } from './home/home.component';
 import { BusListComponent } from './bus/bus-list.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
-  declarations: [UserComponent, RegisterComponent, HomeComponent, LoginComponent, BusListComponent],
+  declarations: [UserComponent, RegisterComponent, HomeComponent, LoginComponent, BusListComponent, BookingComponent],
   imports: [CommonModule, UserRoutingModule, FormsModule],
   bootstrap: [UserComponent],
   providers: [RegisterService, LoginService],
