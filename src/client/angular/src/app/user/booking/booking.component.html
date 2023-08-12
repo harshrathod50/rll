@@ -1,59 +1,79 @@
 <div class="container">
-  <!-- Table -->
-  <div class="row">
-    <div class="col-md-10 offset-md-1 mt-4">
-      <h1>Bus Booking</h1>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Number of Seats</th>
-            <th>User ID</th>
-            <th>Schedule ID</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let booking of bookings; let i = index">
-            <td>
-              <input
-                type="number"
-                [(ngModel)]="booking.numSeats"
-                name="numSeats"
-                class="form-control"
-                required
-              />
-            </td>
-            <td>
-              <input
-                type="number"
-                [(ngModel)]="booking.userID"
-                name="userID"
-                class="form-control"
-                required
-              />
-            </td>
-            <td>
-              <input
-                type="number"
-                [(ngModel)]="booking.scheduleID"
-                name="scheduleID"
-                class="form-control"
-                required
-              />
-            </td>
-            <td>
-              <input
-                type="number"
-                [(ngModel)]="booking.price"
-                name="price"
-                class="form-control"
-                required
-              />
-            </td>
-          </tr>
-        </tbody>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Table -->
+      <table class="table table-bordered">
+        <style>
+          .box-column {
+            border: 1px solid black; /* Add a border around the cell */
+            padding: 5px; /* Add some padding for spacing */
+          }
+        </style>
+        <!-- Table contents -->
       </table>
+      <div class="row">
+        <div class="col-md-10 offset-md-1 mt-4">
+          <h1>Bus Booking</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="border-column">Number of Seats</th>
+                <th class="border-column">User ID</th>
+                <th class="border-column">Schedule ID</th>
+                <th class="border-column">Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let booking of bookings; let i = index">
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="booking.numSeats"
+                    name="numSeats"
+                    class="form-control"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="booking.userID"
+                    name="userID"
+                    class="form-control"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="booking.scheduleID"
+                    name="scheduleID"
+                    class="form-control"
+                    required
+                  />
+                </td>
+                <td>
+                  <input
+                    type="number"
+                    [(ngModel)]="booking.price"
+                    name="price"
+                    class="form-control"
+                    required
+                  />
+                </td>
+                <td>
+                  <button class="btn btn-primary" name="action">Edit</button>
+                </td>
+                <td>
+                  <button class="btn btn-danger" name="action">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
