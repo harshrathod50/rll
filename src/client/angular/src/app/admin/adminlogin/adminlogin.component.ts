@@ -9,7 +9,7 @@ export class Admin {
   name: string = ' ';
   username: string = ' ';
   password: string = ' ';
-  //invalid: string = ' ';
+  
 }
 
 @Component({
@@ -32,15 +32,10 @@ export class AdminloginComponent {
         this.router.navigate(['/admin']);
       }
       else{
-        
         this.errorMessage = "Invalid Username or Password";
       }
-      (error: any) => {
-        console.error('API Error:', error);
-
-        
-      }
-    });
+      
+    })
     
   }
 }

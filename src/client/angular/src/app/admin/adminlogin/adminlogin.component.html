@@ -20,8 +20,7 @@
           <div
             *ngIf="
             username.touched &&
-            username.invalid
-            "
+            username.invalid"
           >
             <p class="alert alert-danger">This field is required</p>
           </div>
@@ -51,11 +50,11 @@
         <br />
 
         <div>
-          <button type="submit" class="btn btn-success">Login</button>
+          <button type="submit" class="btn btn-success"[disabled]="admin.invalid || admin.pristine">Login</button>
         </div>
 
         <p class="text-center mt-3">
-          Don't have an account? <a href="/admin/register">SignUp?</a>
+          Don't have an account? <a routerLink="/admin/register">SignUp?</a>
         </p>
       </form>
     </div>
