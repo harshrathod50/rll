@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
@@ -25,12 +26,16 @@ class AdminRegistrationTests {
       .andExpect(MockMvcResultMatchers.content().contentType("text/plain;charset=UTF-8"));
   }
 
-  public void testAdminRegister() throws Exception {
+  @Test
+  void testApiWithJsonInput() throws Exception {
+    String jsonInput = "{\"username\": \"\", \"password\": \"\"}";
     this.mvc.perform(
-        MockMvcRequestBuilders.get("/admin/register", "name", "username", "password")
+        MockMvcRequestBuilders
+          .post("/admin/register")
+          .content(jsonInput)
+          .contentType(MediaType.APPLICATION_JSON)
+          .accept(MediaType.APPLICATION_JSON)
       )
-      .andExpect(MockMvcResultMatchers.status().isOk())
-      .andExpect(MockMvcResultMatchers.view().name("admin-register"))
-      .andDo(MockMvcResultHandlers.print());
+      .andExpect(MockMvcResultMatchers.status().isCreated());
   }
 }
