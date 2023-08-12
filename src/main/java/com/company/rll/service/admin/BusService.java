@@ -11,7 +11,7 @@ public class BusService {
   @Autowired
   BusRepository br;
 
-  //adding
+  // adding
   public String addbus(BusEntity b) {
     if (b != null) {
       br.save(b);
@@ -21,7 +21,7 @@ public class BusService {
     }
   }
 
-  //editing
+  // editing
 
   //deleting
   public String deletebus(long bus_id) {
@@ -29,8 +29,12 @@ public class BusService {
     return "Bus Removed";
   }
 
-  //viewing all busses
+  // viewing all busses
   public List<BusEntity> showallbuses() {
     return br.findAll();
+  }
+
+  public long totalNumberOfBuses() {
+    return br.count();
   }
 }

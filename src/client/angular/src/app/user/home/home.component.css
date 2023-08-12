@@ -21,21 +21,22 @@ body {
 
 .book-now-button {
   padding: 10px 20px;
-  background: #ff9800;
+  background: red;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 30px;
   cursor: pointer;
   position: relative;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
   left: 80px;
   top: 500px;
+  size: 40px ;
 }
 
 .book-now-button:hover {
-  background: #ff5722;
+  background: black;
 }

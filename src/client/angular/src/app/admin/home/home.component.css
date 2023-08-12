@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
+  background-size: cover;
 }
 
 .header {
@@ -40,14 +41,7 @@ html {
   background-color: #ecf9ff;
 }
 
-body {
-  color: #272727;
-  font-family: 'Quicksand', serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-}
+
 
 .main {
   max-width: 1200px;
@@ -64,6 +58,7 @@ img {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+  background-size:cover;
 }
 
 .btn {
@@ -78,10 +73,12 @@ img {
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
+  background-size: cover;
 }
 
 .btn:hover {
   background-color: rgba(255, 255, 255, 0.12);
+  background-size: cover;
 }
 
 .cards {
@@ -110,23 +107,29 @@ img {
 }
 
 .card {
-  background-color: white;
+  background-color: black;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position:relative;
+  left: 300px;
+  top: 100px;
+  padding:5px;
+  width:1000px;
 }
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
+  background: linear-gradient(to bottom left, blueviolet 40%, #ffc39e 100%);
+  background-size: cover;
 }
 
 .card_title {
   color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 1500;
   letter-spacing: 1px;
   text-transform: capitalize;
   margin: 0px;
@@ -138,10 +141,16 @@ img {
   line-height: 1.5;
   margin-bottom: 1.25rem;
   font-weight: 400;
+  background-size:cover;
 }
-.made_by {
-  font-weight: 400;
-  font-size: 13px;
-  margin-top: 35px;
+
+
+fullpage-image {
+  width: 100%;
+  height: 100vh;
+  background-image:"https://th.bing.com/th/id/R.16e3e250cf5c9422b31d4c3a55c9f364?rik=sGHLlzWEcbK1KQ&riu=http%3a%2f%2froyalbuscharters.ca%2fpublic%2fimages%2ffleet%2fcoach-bus.jpg&ehk=rFHYxe2TykhNi5dd2Mqw%2bKALcwkLSmvwGMLXkPaiQvU%3d&risl=&pid=ImgRaw&r=0" no-repeat center/cover;
+  position: relative;
   text-align: center;
+  color: white;
+
 }

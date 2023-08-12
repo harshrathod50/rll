@@ -38,4 +38,8 @@ public class UserService {
     }
     return null;
   }
+
+  public long totalNumberOfUsers() {
+    return ur.count();
+  }
 }

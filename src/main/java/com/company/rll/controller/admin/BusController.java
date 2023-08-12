@@ -4,7 +4,9 @@ import com.company.rll.entity.admin.BusEntity;
 import com.company.rll.service.admin.BusService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,5 +35,10 @@ public class BusController {
   public String deletebus(@RequestBody BusEntity b) {
     long bus_id = b.getBus_id();
     return bs.deletebus(bus_id);
+  }
+
+  @GetMapping("/totalNumberOfBuses")
+  public ResponseEntity<Long> totalNumberOfBuses() {
+    return new ResponseEntity<Long>(this.bs.totalNumberOfBuses(), HttpStatus.ACCEPTED);
   }
 }
