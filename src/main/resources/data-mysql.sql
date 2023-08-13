@@ -8,6 +8,10 @@
 SELECT "Hello, World!";
 
 -- Admin module
+-- -- Register/Login feature
+INSERT IGNORE INTO `admin` (admin_id, username, name, password,  date_created) VALUES (1, 'admin@example.com', 'Admin', 'admin', TIMESTAMP(NOW()));
+INSERT IGNORE INTO `admin` (admin_id, username, name, password,  date_created) VALUES (2, 'first@last.com', 'First Last', 'first', TIMESTAMP(NOW()));
+
 -- -- Location feature
 INSERT IGNORE INTO admin_location (location_id, terminal, city, province, date_modified, date_created) VALUES(1, '', 'Delhi', 'Delhi', TIMESTAMP(NOW()), TIMESTAMP(NOW()));
 INSERT IGNORE INTO admin_location (location_id, terminal, city, province, date_modified, date_created) VALUES(2, '', 'Mumbai', 'Maharashtra', TIMESTAMP(NOW()), TIMESTAMP(NOW()));

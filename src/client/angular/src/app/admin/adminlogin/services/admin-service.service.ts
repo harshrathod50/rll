@@ -12,6 +12,6 @@ export class AdminServiceService {
   constructor(private httpClient: HttpClient) {}
 
   login(admin: Admin): Observable<Admin> {
-    return this.httpClient.post<Admin>(`${this.baseURL}/login`, admin);
+    return this.httpClient.put<Admin>(`${this.baseURL}/login`, admin);
   }
 }
