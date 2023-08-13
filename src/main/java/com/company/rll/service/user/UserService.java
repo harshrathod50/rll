@@ -10,14 +10,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
   @Autowired
-  UserRepository ur;
+  private UserRepository userRepository;
 
   public String loginvalidation(String username, String password) {
-    UserEntity u = ur.findByuname(username);
+    Optional<UserEntity> u = this.userRepository.findByUsername(username);
     //System.out.println(u.getUsername()+","+u.getPassword());
     //System.out.println(username+","+password);
-    if (u != null) {
-      if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
+    if (u.isPresent()) {
+      if (
+        u.get().getUsername().equals(username) && u.get().getPassword().equals(password)
+      ) {
         return "login sucessfull";
       } else {
         return "Invalid Creds";
@@ -28,18 +30,22 @@ public class UserService {
   }
 
   public List<UserEntity> showall() {
-    return ur.findAll();
+    return this.userRepository.findAll();
   }
 
   public UserEntity register(UserEntity u) {
-    Optional<UserEntity> r = ur.findById((long) u.getUser_id());
+    Optional<UserEntity> r = this.userRepository.findById((long) u.getUserId());
     if (!r.isPresent()) {
-      ur.save(u);
+      return this.userRepository.save(u);
     }
     return null;
   }
 
+  public void removeOne(long userId) {
+    this.userRepository.deleteById(userId);
+  }
+
   public long totalNumberOfUsers() {
-    return ur.count();
+    return this.userRepository.count();
   }
 }

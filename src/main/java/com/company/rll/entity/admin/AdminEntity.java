@@ -24,6 +24,7 @@ public class AdminEntity {
 
   private String name;
 
+  @Column(unique = true)
   private String username;
 
   private String password;

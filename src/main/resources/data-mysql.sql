@@ -142,3 +142,8 @@ INSERT IGNORE INTO admin_location (location_id, terminal, city, province, date_m
 INSERT IGNORE INTO admin_location (location_id, terminal, city, province, date_modified, date_created) VALUES(127, '', 'Harna Bujurg', 'Bihar', TIMESTAMP(NOW()), TIMESTAMP(NOW()));
 INSERT IGNORE INTO admin_location (location_id, terminal, city, province, date_modified, date_created) VALUES(128, '', 'Mailanhalli', 'Karnataka', TIMESTAMP(NOW()), TIMESTAMP(NOW()));
 INSERT IGNORE INTO admin_location (location_id, terminal, city, province, date_modified, date_created) VALUES(129, '', 'Darbhanga', 'Bihar', TIMESTAMP(NOW()), TIMESTAMP(NOW()));
+
+-- User module
+-- Register/Login feature
+INSERT IGNORE INTO `user` (`user_id`, `username`, `name`, `password`, `date_modified`, `date_created`) VALUES (1, 'user@example.com', 'User', 'user', TIMESTAMP(NOW()), TIMESTAMP(NOW()));
+INSERT IGNORE INTO `user` (`user_id`, `username`, `name`, `password`, `date_modified`, `date_created`) VALUES (2, 'foo@bar.com', 'Foo Bar', 'foo', TIMESTAMP(NOW()), TIMESTAMP(NOW()));

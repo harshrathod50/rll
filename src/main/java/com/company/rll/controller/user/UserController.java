@@ -8,10 +8,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,25 +22,37 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class UserController {
   @Autowired
-  UserService us;
+  UserService userService;
 
   @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
   public String loginvalidation(@RequestBody UserEntity u) {
-    return us.loginvalidation(u.getUsername(), u.getPassword());
+    return this.userService.loginvalidation(u.getUsername(), u.getPassword());
   }
 
   @GetMapping(value = "/viewAll", produces = MediaType.APPLICATION_JSON_VALUE)
   public List<UserEntity> showall() {
-    return us.showall();
+    return this.userService.showall();
   }
 
   @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
-  public UserEntity register(@RequestBody UserEntity u) {
-    return us.register(u);
+  public ResponseEntity<UserEntity> register(@RequestBody UserEntity u) {
+    return new ResponseEntity<UserEntity>(
+      this.userService.register(u),
+      HttpStatus.CREATED
+    );
   }
 
   @GetMapping("/totalNumberOfUsers")
   public ResponseEntity<Long> totalNumberOfUsers() {
-    return new ResponseEntity<Long>(this.us.totalNumberOfUsers(), HttpStatus.ACCEPTED);
+    return new ResponseEntity<Long>(
+      this.userService.totalNumberOfUsers(),
+      HttpStatus.ACCEPTED
+    );
+  }
+
+  @DeleteMapping("/remove_one/{userId}")
+  @ResponseStatus(HttpStatus.OK)
+  public void removeOne(@PathVariable("userId") long userId) {
+    this.userService.removeOne(userId);
   }
 }
