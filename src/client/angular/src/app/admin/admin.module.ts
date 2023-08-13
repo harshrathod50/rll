@@ -9,12 +9,18 @@ import { RegisterComponent } from './register/register.component';
 import { RegisterService } from './register/register.service';
 import { AdminServiceService } from './adminlogin/services/admin-service.service';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
-  declarations: [AdminComponent, HomeComponent, RegisterComponent, AdminloginComponent],
+  declarations: [
+    AdminComponent,
+    HomeComponent,
+    RegisterComponent,
+    AdminloginComponent,
+    LocationComponent,
+  ],
   imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule],
   bootstrap: [AdminComponent],
-  providers: [RegisterService, AdminServiceService]
-  
+  providers: [RegisterService, AdminServiceService],
 })
 export class AdminModule {}

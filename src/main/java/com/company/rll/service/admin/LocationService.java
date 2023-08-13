@@ -73,4 +73,8 @@ public class LocationService {
   public void removeOne(long locationId) {
     this.locationRepository.deleteById(locationId);
   }
+
+  public Long totalCount() {
+    return this.locationRepository.count();
+  }
 }

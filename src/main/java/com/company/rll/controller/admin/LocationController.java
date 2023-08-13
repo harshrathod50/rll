@@ -68,4 +68,9 @@ public class LocationController {
   public void removeOne(@PathVariable("locationId") long locationId) {
     locationService.removeOne(locationId);
   }
+
+  @GetMapping("/total_count")
+  public ResponseEntity<Long> totalCount() {
+    return new ResponseEntity<Long>(locationService.totalCount(), HttpStatus.OK);
+  }
 }
