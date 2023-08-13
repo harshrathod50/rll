@@ -32,4 +32,8 @@ public class AdminService {
     }
     return null;
   }
+
+  public void remove(long adminId) {
+    this.adminRepository.deleteById(adminId);
+  }
 }
