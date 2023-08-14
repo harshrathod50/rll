@@ -1,79 +1,105 @@
-<div class="container">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <!-- Table -->
-      <table class="table table-bordered">
-        <style>
-          .box-column {
-            border: 1px solid black; /* Add a border around the cell */
-            padding: 5px; /* Add some padding for spacing */
-          }
-        </style>
-        <!-- Table contents -->
-      </table>
-      <div class="row">
-        <div class="col-md-10 offset-md-1 mt-4">
-          <h1>Bus Booking</h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="border-column">Number of Seats</th>
-                <th class="border-column">User ID</th>
-                <th class="border-column">Schedule ID</th>
-                <th class="border-column">Price</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let booking of bookings; let i = index">
-                <td>
-                  <input
-                    type="number"
-                    [(ngModel)]="booking.numSeats"
-                    name="numSeats"
-                    class="form-control"
-                    required
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    [(ngModel)]="booking.userID"
-                    name="userID"
-                    class="form-control"
-                    required
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    [(ngModel)]="booking.scheduleID"
-                    name="scheduleID"
-                    class="form-control"
-                    required
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
-                    [(ngModel)]="booking.price"
-                    name="price"
-                    class="form-control"
-                    required
-                  />
-                </td>
-                <td>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Booking</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('https://tse2.mm.bing.net/th?id=OIP.aAZZGEXMVyIDG0-ND0bXNgHaDL&pid=Api&P=0&h=180');
+      background-size: cover;
+      background-position: center;
+    }
+    .panel {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin-top: 50px;
+    }
+    .center {
+      text-align: center;
+    }
+    .box-column {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    /* Adjust the width of the Action buttons */
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 120px; /* You can adjust this value as needed */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="center">Bus Booking</h3>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="box-column">Number of Seats</th>
+              <th class="box-column">User ID</th>
+              <th class="box-column">Schedule ID</th>
+              <th class="box-column">Price</th>
+              <th class="box-column">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings; let i = index">
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="booking.numSeats"
+                  name="numSeats"
+                  class="form-control"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="booking.userID"
+                  name="userID"
+                  class="form-control"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="booking.scheduleID"
+                  name="scheduleID"
+                  class="form-control"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="booking.price"
+                  name="price"
+                  class="form-control"
+                  required
+                />
+              </td>
+              <td>
+                <div class="action-buttons">
                   <button class="btn btn-primary" name="action">Edit</button>
-                </td>
-                <td>
                   <button class="btn btn-danger" name="action">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <button class="btn btn-primary" routerLink="/user/home">Go to Home</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>
+</html>
