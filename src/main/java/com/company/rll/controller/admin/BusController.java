@@ -39,6 +39,6 @@ public class BusController {
 
   @GetMapping("/totalNumberOfBuses")
   public ResponseEntity<Long> totalNumberOfBuses() {
-    return new ResponseEntity<Long>(this.bs.totalNumberOfBuses(), HttpStatus.ACCEPTED);
+    return new ResponseEntity<Long>(this.bs.totalNumberOfBuses(), HttpStatus.OK);
   }
 }

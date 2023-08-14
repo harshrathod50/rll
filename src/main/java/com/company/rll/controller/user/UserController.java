@@ -53,10 +53,7 @@ public class UserController {
 
   @GetMapping("/totalNumberOfUsers")
   public ResponseEntity<Long> totalNumberOfUsers() {
-    return new ResponseEntity<Long>(
-      this.userService.totalNumberOfUsers(),
-      HttpStatus.ACCEPTED
-    );
+    return new ResponseEntity<Long>(this.userService.totalNumberOfUsers(), HttpStatus.OK);
   }
 
   @DeleteMapping("/remove_one/{userId}")
