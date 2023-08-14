@@ -2,17 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import type { User } from '../register/register.component';
+
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  private loginurl = 'http://localhost:8080/user/login';
+  private loginurl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
-    const data = { username, password };
-    console.log(`${username} , pwd:${password}`);
-    return this.http.post(this.loginurl, data, { responseType: 'text' });
+  login(user: User): Observable<User> {
+    return this.http.put<User>(`${this.loginurl}/user/login`, user);
   }
 }

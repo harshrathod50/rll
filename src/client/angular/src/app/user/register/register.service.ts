@@ -1,17 +1,19 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from './register.component';
+
+import type { User } from './register.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RegisterService {
-  baseUrl = 'http://localhost:8080/user/register';
+  baseUrl = 'http://localhost:8080';
   constructor(private httpClient: HttpClient) {}
 
   registerUser(user: User): Observable<Object> {
-    console.log(user);
-    return this.httpClient.post(`${this.baseUrl}`, user);
+    return this.httpClient.post<User>(`${this.baseUrl}/user/register`, user, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    });
   }
 }

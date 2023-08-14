@@ -20,8 +20,6 @@ public class AdminService {
   }
 
   public AdminEntity login(AdminEntity adminEntity) {
-    System.out.println(adminEntity.getPassword());
-    System.out.println(adminEntity.getUsername());
     Optional<AdminEntity> result = adminRepository.findByUsername(
       adminEntity.getUsername()
     );

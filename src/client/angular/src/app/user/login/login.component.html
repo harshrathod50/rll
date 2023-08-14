@@ -17,7 +17,7 @@
           <div class="card">
             <div class="card-body" style="background-color: #ffffff">
               <h2 class="card-title text-center facebook-style-text">Login</h2>
-              <form #userlogin="ngForm" (ngSubmit)="OnSubmit(userlogin)">
+              <form #user="ngForm" (ngSubmit)="onSubmit(user.value)">
                 <div class="form-group">
                   <label for="username"
                     ><b><i>Username</i></b></label
@@ -28,6 +28,7 @@
                     id="username"
                     name="username"
                     ngModel
+                    #username="ngModel"
                     placeholder="Enter your username"
                     required
                   />
@@ -42,6 +43,7 @@
                     id="password"
                     name="password"
                     ngModel
+                    #password="ngModel"
                     placeholder="Enter your password"
                     required
                   />

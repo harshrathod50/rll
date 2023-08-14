@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-
-import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+
+import type { User } from '../register/register.component';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'login',
@@ -12,23 +12,14 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private loginService: LoginService, private router: Router) {}
 
-  OnSubmit(form: NgForm) {
-    if (form.valid) {
-      const username = form.value.username;
-      const password = form.value.password;
-      this.loginService.login(username, password).subscribe(
-        (response) => {
-          if (response === 'login sucessfull') {
-            this.router.navigate(['/user/']);//navigating to user-home page
-          } else {
-            alert(`OOPS You have missed somewhere with your credentials`);
-            
-          }
-        },
-        (error) => {
-          console.error('API Error:', error);
-        }
-      );
-    }
+  onSubmit(user: User) {
+    console.log(user);
+    this.loginService.login(user).subscribe((user) => {
+      if (user != null) {
+        this.router.navigate(['/user']); //navigating to user-home page
+      } else {
+        alert(`OOPS You have missed somewhere with your credentials`);
+      }
+    });
   }
 }

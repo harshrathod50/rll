@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { RegisterService } from './register.service';
 import { Router } from '@angular/router';
 
-export class User {
-  username!: string;
-  password!: string;
-  email!: string;
+export interface User {
+  username: string;
+  password: string;
+  name: string;
 }
 
 @Component({
@@ -15,20 +15,17 @@ export class User {
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  user: User = new User();
 
   constructor(
     private router: Router,
     private registerService: RegisterService
   ) {}
 
-  userRegister() {
-    console.log(this.user);
-    this.registerService.registerUser(this.user).subscribe(
-      (data) => {
+  userRegister(user: User) {
+    this.registerService.registerUser(user).subscribe(
+      (user) => {
         this.router.navigate(['/user/login'])
-      },
-      (error) => alert('Sorry User not register')
+      }
     );
   }
 }

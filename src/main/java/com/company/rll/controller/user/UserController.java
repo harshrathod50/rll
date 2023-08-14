@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -19,14 +20,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin
+@CrossOrigin("*")
 public class UserController {
   @Autowired
   UserService userService;
 
-  @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
-  public String loginvalidation(@RequestBody UserEntity u) {
-    return this.userService.loginvalidation(u.getUsername(), u.getPassword());
+  @PutMapping("/login")
+  public ResponseEntity<Object> loginvalidation(@RequestBody UserEntity u) {
+    UserEntity user = this.userService.loginvalidation(u.getUsername(), u.getPassword());
+    if (user != null) {
+      return new ResponseEntity<Object>(user, HttpStatus.OK);
+    }
+    return new ResponseEntity<Object>(null, HttpStatus.NOT_FOUND);
   }
 
   @GetMapping(value = "/viewAll", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -34,7 +39,11 @@ public class UserController {
     return this.userService.showall();
   }
 
-  @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
+  @PostMapping(
+    value = "/register",
+    consumes = MediaType.APPLICATION_JSON_VALUE,
+    produces = MediaType.APPLICATION_JSON_VALUE
+  )
   public ResponseEntity<UserEntity> register(@RequestBody UserEntity u) {
     return new ResponseEntity<UserEntity>(
       this.userService.register(u),

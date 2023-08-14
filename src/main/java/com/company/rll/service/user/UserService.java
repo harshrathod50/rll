@@ -12,21 +12,16 @@ public class UserService {
   @Autowired
   private UserRepository userRepository;
 
-  public String loginvalidation(String username, String password) {
+  public UserEntity loginvalidation(String username, String password) {
     Optional<UserEntity> u = this.userRepository.findByUsername(username);
-    //System.out.println(u.getUsername()+","+u.getPassword());
-    //System.out.println(username+","+password);
     if (u.isPresent()) {
       if (
         u.get().getUsername().equals(username) && u.get().getPassword().equals(password)
       ) {
-        return "login sucessfull";
-      } else {
-        return "Invalid Creds";
+        return u.get();
       }
-    } else {
-      return "User Not found";
     }
+    return null;
   }
 
   public List<UserEntity> showall() {
