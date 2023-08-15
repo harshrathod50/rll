@@ -12,7 +12,7 @@ export class BookingComponent {
   numSeats:number=2;
   bookings: any[] = [
     { numSeats:2, userID: 1, scheduleID: 101, price: 50},
-    { numSeats: 3, userID: 2, scheduleID: 102, price: 75 },
+    { numSeats:3, userID: 2, scheduleID: 102, price: 50 },
     // Add more sample bookings as needed
   ];
 
