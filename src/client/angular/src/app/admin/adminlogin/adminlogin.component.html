@@ -1,65 +1,53 @@
-<div class="container">
-  <!-- Form -->
-  <div class="row">
-    <div class="form-example card col-md-4 offset-4 mt-6">
-      <form #admin="ngForm" (ngSubmit)="login(admin)">
-        <h1>Admin Login</h1>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            type="text"
-            #username="ngModel"
-            ngModel
-            type="email"
-            name="username"
-            class="form-control"
-            id="username"
-            placeholder="Enter your Username"
-            required
-          />
-          <div
-            *ngIf="
-            username.touched &&
-            username.invalid"
-          >
-            <p class="alert alert-danger">This field is required</p>
-          </div>
-        </div>
-        <br />
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            ngModel
-            #password="ngModel"
-            name="password"
-            class="form-control"
-            id="password"
-            placeholder="Enter your password"
-            required
-          />
-          <div
-            *ngIf="
-            password.touched &&
-            password.invalid"
-          >
-            <p class="alert alert-danger">This field is required</p>
-          </div>
-        </div>
-        <br />
-
-        <div>
-          <button type="submit" class="btn btn-success"[disabled]="admin.invalid || admin.pristine">Login</button>
-        </div>
-
-        <p class="text-center mt-3">
-          Don't have an account? <a routerLink="/admin/register">SignUp?</a>
-        </p>
-      </form>
-    </div>
-    <div class="text-center text-danger">
-      <h2 *ngIf="errorMessage">{{errorMessage}}</h2>
+<form #admin="ngForm" (ngSubmit)="login(admin)" class="tw-bg-white tw-p-8 tw-rounded-lg">
+  <h1>Admin Login</h1>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      #username="ngModel"
+      ngModel
+      type="email"
+      name="username"
+      class="form-control"
+      id="username"
+      placeholder="Enter your Username"
+      required
+    />
+    <div *ngIf="username.touched && username.invalid">
+      <p class="alert alert-danger">This field is required</p>
     </div>
   </div>
-</div>
+  <br />
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      ngModel
+      #password="ngModel"
+      name="password"
+      class="form-control"
+      id="password"
+      placeholder="Enter your password"
+      required
+    />
+    <div *ngIf="password.touched && password.invalid">
+      <p class="alert alert-danger">This field is required</p>
+    </div>
+  </div>
+  <br />
+
+  <div>
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="admin.invalid || admin.pristine"
+    >
+      Login
+    </button>
+  </div>
+
+  <p class="text-center mt-3">
+    Don't have an account? <a routerLink="/admin/register">SignUp?</a>
+  </p>
+</form>
