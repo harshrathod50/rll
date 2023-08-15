@@ -51,45 +51,43 @@
           <tbody>
             <tr *ngFor="let booking of bookings; let i = index">
               <td>
-                <input
-                  type="number"
-                  [(ngModel)]="booking.numSeats"
-                  name="numSeats"
-                  class="form-control"
-                  required
-                />
+                <ng-container *ngIf="editIndex !== i; else editCell">
+                  {{ booking.numSeats }}
+                </ng-container>
+                <ng-template #editCell>
+                  <input [(ngModel)]="editedBooking.numSeats" class="form-control" />
+                </ng-template>
               </td>
               <td>
-                <input
-                  type="number"
-                  [(ngModel)]="booking.userID"
-                  name="userID"
-                  class="form-control"
-                  required
-                />
+                <ng-container *ngIf="editIndex !== i; else editCell">
+                  {{ booking.userID }}
+                </ng-container>
+                <ng-template #editCell>
+                  <input [(ngModel)]="editedBooking.userID" class="form-control" />
+                </ng-template>
               </td>
               <td>
-                <input
-                  type="number"
-                  [(ngModel)]="booking.scheduleID"
-                  name="scheduleID"
-                  class="form-control"
-                  required
-                />
+                <ng-container *ngIf="editIndex !== i; else editCell">
+                  {{ booking.scheduleID }}
+                </ng-container>
+                <ng-template #editCell>
+                  <input [(ngModel)]="editedBooking.scheduleID" class="form-control" />
+                </ng-template>
               </td>
               <td>
-                <input
-                  type="number"
-                  [(ngModel)]="booking.price"
-                  name="price"
-                  class="form-control"
-                  required
-                />
+                <ng-container *ngIf="editIndex !== i; else editCell">
+                  {{ booking.price *booking.numSeats }}
+                </ng-container>
+                <ng-template #editCell>
+                  <input [(ngModel)]="editedBooking.price" class="form-control" />
+                </ng-template>
               </td>
               <td>
                 <div class="action-buttons">
-                  <button class="btn btn-primary" name="action">Edit</button>
-                  <button class="btn btn-danger" name="action">Delete</button>
+                  <button class="btn btn-primary" *ngIf="editIndex !== i" (click)="editBooking(i)">Edit</button>
+                  <button class="btn btn-danger" *ngIf="editIndex !== i" (click)="deleteBooking(i)">Delete</button>
+                  <button class="btn btn-success" *ngIf="editIndex === i" (click)="saveEdit(i)">Save</button>
+                  <button class="btn btn-secondary" *ngIf="editIndex === i" (click)="cancelEdit()">Cancel</button>
                 </div>
               </td>
             </tr>
@@ -101,5 +99,9 @@
       </div>
     </div>
   </div>
+  
+  
+  
+  
 </body>
 </html>

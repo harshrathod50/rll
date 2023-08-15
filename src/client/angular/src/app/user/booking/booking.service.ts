@@ -25,7 +25,7 @@ export class BookingService {
       const updatedBooking: Booking = {
         id: bookingId,
         seats: newSeats,
-        price: newPrice,
+        price: 0,
         scheduleId: 0,
         userId: 0
       };
