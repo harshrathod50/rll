@@ -20,7 +20,7 @@ public class BookingController {
   @Autowired
   private BookingService bookingService;
 
-  @PostMapping
+  @PostMapping("/{userId}")
   public long createbooking(@RequestBody BookingEntity userId) {
     return bookingService.createbooking(userId);
   }
