@@ -1,4 +1,4 @@
-<div class="container col-md-6">
+<div class="container card tw-p-6">
   <h1 class="card-title text-center facebook-style-text" style="color: red">
     Register User
   </h1>
@@ -44,7 +44,7 @@
     </div>
     <input type="submit" class="btn btn-primary btn-block" value="Register">
     <p class="text-center mt-3">
-      <a href="/user/login"
+      <a [routerLink]="['/user/login']"
         >Have an account?</a
       >
       <button type="submit" class="btn btn-primary">Login</button>

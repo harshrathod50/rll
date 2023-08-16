@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { BusListComponent } from './bus/bus-list.component';
 import { BookingComponent } from './booking/booking.component';
+import { User2Component } from './user2/user2.component';
+import { userGuard } from './user.guard';
 
 const routes: Routes = [
   {
@@ -14,12 +16,19 @@ const routes: Routes = [
     component: UserComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'register', component: RegisterComponent },
-      { path: 'login', component: LoginComponent },
       { path: 'bus', component: BusListComponent},
       { path: 'booking', component: BookingComponent},
     ],
+    canActivate: [userGuard],
   },
+  {
+    path: '',
+    component: User2Component,
+    children: [
+      { path: 'register', component: RegisterComponent },
+      { path: 'login', component: LoginComponent },
+    ],
+  }
 ];
 
 @NgModule({
