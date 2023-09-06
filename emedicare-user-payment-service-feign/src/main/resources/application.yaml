@@ -1,0 +1,76 @@
+server:
+  port:
+    0
+
+spring:
+  application:
+    name: "payment-feign-service"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: "http://localhost:8761/eureka"
+    register-with-eureka: true
+  instance:
+    preferIpAddress: false
+# logging:
+#   pattern:
+#     level: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId} %X{spanId}] [%thread] %-5level %logger{36} - %msg%n"
+
+feign:
+  circuitbreaker:
+    enabled: true
+
+logging:
+  level:
+    com:
+      emedicare:
+        paymentService:
+          controller:
+            UserPaymentController: "DEBUG"
+  pattern:
+    level: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId} %X{spanId}] [%thread] %-5level %logger{36} - %msg%n"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "always"
+  health:
+    circuitbreakers:
+      enabled: true
+    ratelimiters:
+      enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+  
+      
+
+resilience4j:
+  circuitbreaker:
+    circuit-breaker-aspect-order: 1
+    instances:
+      paymentService:
+        # sliding-window-type: "time-based"
+        sliding-window-type: "count-based"
+        sliding-window-size: 2
+        minimum-number-of-calls: 1
+        event-consumer-buffer-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: "10s"
+        automatic-transition-from-open-to-half-open-enabled: true
+  retry:
+    retry-aspect-order: 2
+    instances:
+      product-microservice:
+        max-attempts: 3
+        wait-duration: "2s"
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 5
+
+
+ 
