@@ -15,5 +15,7 @@ public class PEntity {
   
   @Id
   private Integer pid;
+  private float price;
+  private String username;
   private double balance;
 }
