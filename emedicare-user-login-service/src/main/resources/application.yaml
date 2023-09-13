@@ -5,6 +5,14 @@ server:
 spring:
   application:
     name: "user-login-service"
+  profiles:
+    active: "prod"
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  cloud:
+    config:
+      label: "main"  
+
 
 eureka:
   client:
