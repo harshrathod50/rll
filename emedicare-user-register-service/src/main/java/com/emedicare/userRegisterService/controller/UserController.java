@@ -3,6 +3,8 @@ package com.emedicare.userRegisterService.controller;
 import com.emedicare.userRegisterService.dto.UserDTO;
 import com.emedicare.userRegisterService.service.UserService;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -33,6 +35,7 @@ public class UserController {
     consumes = MediaType.APPLICATION_JSON_VALUE
   )
   public ResponseEntity<UserDTO> register(@RequestBody UserDTO userDTO) {
+    log.debug("added");
     return new ResponseEntity<UserDTO>(
       this.userService.addOne(userDTO),
       HttpStatus.CREATED
