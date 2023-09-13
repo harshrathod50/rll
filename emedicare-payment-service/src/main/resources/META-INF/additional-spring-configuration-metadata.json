@@ -1,5 +1,0 @@
-{"properties": [{
-  "name": "application.theme",
-  "type": "java.lang.String",
-  "description": "Set the theme for the application."
-}]}
